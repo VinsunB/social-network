@@ -1,0 +1,26 @@
+
+<div class="boxOne">
+<h3>sent friend requests</h3>
+<% @friendship_requests.each do |friendship_request| %>
+<p><%= friendship_request.receiver.name%></p>
+<% end %>
+</div>
+
+
+<div class="boxOne">
+<h3>received friend requests</h3>
+<% @inverse_friendship_requests.each do |inverse_friendship_request| %>
+<p>
+<%= inverse_friendship_request.sender.name %><%= link_to " accept", friendships_path(receiver_id: inverse_friendship_request.sender.id), method: :post %>
+
+	<%= link_to "deny", friendship_request_path(inverse_friendship_request), method: :delete %></p>
+
+<% end %>
+</div>
+<div class="floatright">
+<h3> Friends </h3>
+<% @user.friendships.each do |friendship| %>
+	
+<p><%= friendship.friend.name %></p>
+<% end %>
+</div>

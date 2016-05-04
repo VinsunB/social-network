@@ -3,6 +3,11 @@ Rails.application.routes.draw do
  root 'users#new'
  resources :users
  resources :sessions
+  
+
+ resources :friendships, only: [:create, :destroy] 
+resources :friendship_requests, only: [:create, :destroy]
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

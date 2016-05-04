@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160501142229) do
   create_table "friendship_requests", force: true do |t|
     t.integer  "sender_id"
     t.integer  "receiver_id"
-    t.boolean  "accepted",    default: false
+    t.boolean  "invisible",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

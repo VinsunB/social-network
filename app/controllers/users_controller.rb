@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
 
+  def show
+ @user = User.includes(:friendship_requests).find(params[:id])
+ @inverse_friendship_requests = @user.inverse_friendship_requests.where(invisible: false)
+ 
+ @friendship_requests = @user.friendship_requests.where(invisible: false)
+ end
+
+def index 
+	@users = User.all
+end
+
   def new
 @user = User.new
   end

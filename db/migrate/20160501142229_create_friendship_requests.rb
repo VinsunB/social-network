@@ -3,7 +3,7 @@ class CreateFriendshipRequests < ActiveRecord::Migration
     create_table :friendship_requests do |t|
       t.integer :sender_id
       t.integer :receiver_id
-      t.boolean :accepted, default: false
+      t.boolean :invisible, default: false
 
       t.timestamps
     end
