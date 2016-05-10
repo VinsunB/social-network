@@ -1,6 +1,7 @@
 <% @users.each do |user| %>
 <div class="borderone">
+<% next if user == current_user %>
 <p><%= user.name %></p>
 <%= link_to "send friend request", friendship_requests_path(receiver_id: user), method: :post%>
 </div>
-<% end %>
+<% end %> 

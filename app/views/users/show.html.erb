@@ -17,10 +17,25 @@
 
 <% end %>
 </div>
-<div class="floatright">
-<h3> Friends </h3>
-<% @user.friendships.each do |friendship| %>
-	
-<p><%= friendship.friend.name %></p>
+
+<div id="inbox">
+<h3> inbox </h3>
+
+<% @messages.each do |message| %>
+<p class="borderone"><%= message.body %><%= link_to " discard", inbox_message_path(message), method: :delete %></p>
 <% end %>
 </div>
+
+
+<div class="boxOne">
+<h3> Friends </h3>
+<% @user_friendships.each do |friendship| %>
+	
+<p><%= friendship.friend.name %><%= link_to " unfriend", friendship_path(friendship.id.to_i), method: :delete %></p>
+<% end %>
+<% @user_inverse_friendships.each do |friendship| %>
+	
+<p><%= friendship.user.name %><%= link_to " unfriend", friendship_path(friendship.id.to_i), method: :delete %></p>
+<% end %>
+</div>
+

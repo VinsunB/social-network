@@ -12,4 +12,8 @@ has_many :receivers, through: :friendship_requests
 
 has_many :inverse_friendship_requests, class_name: "FriendshipRequest", foreign_key: "receiver_id"
 has_many :inverse_receivers, through: :inverse_friendship_requests, source: :sender
+
+
+has_many :inbox_messages
+
 end
